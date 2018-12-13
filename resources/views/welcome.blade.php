@@ -83,7 +83,8 @@
 
             <div id="buttons">
              <button id="pause" class="btn btn-primary btn-lg" onclick="myFunction()">Pick Lucky Number</button>
-             <button onclick="location.reload()" class="btn btn-success btn-lg">Pick Another</button>
+             <!-- <button onclick="location.reload()" class="btn btn-success btn-lg">Pick Another</button> -->
+             <button onclick="reloadMe()" class="btn btn-success btn-lg">Pick Another</button>
              <a href="{{ route('winners.page') }}" target="_blanik" class="btn btn-warning btn-lg">View Winners</a>
             </div>
 
@@ -100,6 +101,25 @@
             randomNumbers();
 
           });
+
+          
+          function reloadMe() {
+
+            $('#number1').hide();
+            $('#number2').hide();
+            $('#number3').hide();
+
+            $('#random1').show();
+            $('#random2').show();
+            $('#random3').show();
+
+            randomNumbers();
+
+            $('#pause').prop('disabled', false);
+
+
+          }
+
 
           // FUNCTION ALL
           function myFunction() {
