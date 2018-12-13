@@ -65,9 +65,11 @@
 
     <body>
 
+      <div style="float: left; margin: 0 auto">
+        <!-- <img src="{{ asset('/images/logo.png') }}" class="img-responsive" height="100px"> -->
+      </div>
+
         <div id="display" class="container text-center">
-            
-            <p id="days"></p>
 
             <div class="row">
               <div class="col-md-4" id="random1"></div>
@@ -246,21 +248,6 @@
 
         <script>
             // SCRIPT FOR DESIGN FOR THE BACKGROUND
-            myDate=new Date(); 
-            xmas=Date.parse("Dec 25, "+myDate.getFullYear()) 
-            today=Date.parse(myDate) 
-
-            daysToChristmas=Math.round((xmas-today)/(1000*60*60*24)) 
-
-
-            if (daysToChristmas==0) 
-            $('#days').text("It's Christmas!! Merry Christmas!");
-
-            if (daysToChristmas<0) 
-            $('#days').text("Christmas was "+-1*(daysToChristmas)+" days ago.");
-
-            if (daysToChristmas>0) 
-            $('#days').text(daysToChristmas+" days to Christmas!");
 
             //make snow
             snowDrop(150, randomInt(1035, 1280));
