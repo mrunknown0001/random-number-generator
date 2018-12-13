@@ -195,10 +195,15 @@
                     $('#number2').html( str[1]);
                     $('#number3').html( str[2]);
             }
-            else {
+            else if(str.length >= 2) {
                     $('#number1').html( 0 );
                     $('#number2').html( str[0]);
                     $('#number3').html( str[1]);
+            }
+            else {
+                    $('#number1').html( 0 );
+                    $('#number2').html( 0);
+                    $('#number3').html( str[0]);
             }
 
 
