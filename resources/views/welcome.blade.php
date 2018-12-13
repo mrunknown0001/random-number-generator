@@ -123,17 +123,23 @@
               url: "/check-number/" + num
             });
 
-            alert(res.success)
+            if(res.success == 'true') {
+              myFunction()
+            }
+            else {
 
-            // save number to database -- ok
-            // $.ajax({
-            //   url: 'save-number',
-            //   type: "get",
-            //   url: "/save-number/" + num
-            // });
+              // save number to database -- ok
+              $.ajax({
+                url: 'save-number',
+                type: "get",
+                url: "/save-number/" + num
+              });
+
+              displayNumber(num);
+
+            }
 
 
-            displayNumber(num);
 
           }
 

@@ -12,7 +12,11 @@ class WinnerController extends Controller
     {
     	$n = Winner::where('number', $number)->first();
 
-    	return $n;
+    	if($n) {
+    		return 'true';
+    	}
+
+    	return 'false';
     }
 
 
