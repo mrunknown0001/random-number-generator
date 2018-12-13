@@ -22,7 +22,7 @@
 
     <body>
       <div class="container">
-        <h1>BFC Family Lucky Winners</h1>
+        <h1>BGC Family Lucky Winners</h1>
         <table id="winners">
           <thead>
             <th>ID</th>

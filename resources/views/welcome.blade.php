@@ -105,6 +105,7 @@
           function myFunction() {
 
             var num = null;
+            var res = null;
 
             // get a unique number
 
@@ -116,18 +117,21 @@
 
 
             // check number if exist in database
-            $.ajax({
-              url: 'save-number',
+            res = $.ajax({
+              url: 'check-number',
               type: "get",
               url: "/check-number/" + num
             });
 
-            // save number to database
-            $.ajax({
-              url: 'save-number',
-              type: "get",
-              url: "/save-number/" + num
-            });
+            alert(res.success)
+
+            // save number to database -- ok
+            // $.ajax({
+            //   url: 'save-number',
+            //   type: "get",
+            //   url: "/save-number/" + num
+            // });
+
 
             displayNumber(num);
 
