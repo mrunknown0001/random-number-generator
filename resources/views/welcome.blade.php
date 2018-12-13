@@ -87,7 +87,7 @@
              <a href="{{ route('winners.page') }}" target="_blanik" class="btn btn-warning btn-lg">View Winners</a>
             </div>
 
-            <div class="text-center">
+            <div class="text-center" style="font-size: 25px; font-style: ;">
               Created By IT Team
             </div>
         </div>
@@ -202,11 +202,11 @@
             }
 
 
-            $('#number1').delay(1500).fadeIn(400);
-            $('#number2').delay(3000).fadeIn(400);
-            $('#number3').delay(4500).fadeIn(400);
+            $('#number1').delay(500).fadeIn(400);
+            $('#number2').delay(800).fadeIn(400);
+            $('#number3').delay(1000).fadeIn(400);
         
-            $('#buttons').delay(5000).fadeIn(500);
+            $('#buttons').delay(1500).fadeIn(500);
 
             $('#pause').prop('disabled', true);
 
