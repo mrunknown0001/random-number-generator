@@ -24,6 +24,9 @@
     <body>
       <div class="container">
         <h1>BGC Family Lucky Winners</h1>
+        <p>
+          <button class="btn btn-primary btn-sm" onclick="reloadTable()">Reload</button>
+        </p>
         <table id="winners">
           <thead>
             <th>ID</th>
@@ -70,7 +73,7 @@
             type: "get"
           });
 
-          
+
           var prize = prompt('Please Enter Prize', '');
 
           $.ajax({
@@ -82,6 +85,12 @@
           var table = $('#winners').DataTable();
           table.ajax.reload();
 
+        }
+
+
+        function reloadTable() {
+          var table = $('#winners').DataTable();
+          table.ajax.reload();
         }
       </script>
     </body>

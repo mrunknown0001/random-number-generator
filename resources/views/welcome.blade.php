@@ -135,15 +135,33 @@
             // then display to page
             num = getGeneratedNumber();
 
+            var res = null;
+
 
             // check number if exist in database
-            res = $.ajax({
-              url: "/check-number/" + num,
-              type: "get"
-            });
+            // res = $.ajax({
+            //   url: "/check-number/" + num,
+            //   type: "get"
+            // });
 
-            if(res.success == 'true') {
-              myFunction()
+            $.ajax({
+                type: "get",
+                contentType: "application/json; charset=utf-8",
+                url: "/check-number/" + num,
+                data: '',
+                datatype: 'json',
+                async: false,
+                success: function (data) {
+                  
+                  res = data;
+
+                }
+            }); 
+
+            console.log(res);
+
+            if(res == "false") {
+              myFunction();
             }
             else {
 
