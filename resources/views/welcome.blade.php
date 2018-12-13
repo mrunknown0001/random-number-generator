@@ -124,25 +124,16 @@
           // FUNCTION ALL
           function myFunction() {
 
+            $('#random1').hide();
+            $('#random2').hide();
+            $('#random3').hide();
+
             var num = null;
             var res = null;
 
-            // get a unique number
-
-            // check if the unique number is existing or not
-            // if existing call, randomNumbers() and pick another unique number
-            // then if not existing save to save to database
-            // then display to page
             num = getGeneratedNumber();
 
             var res = null;
-
-
-            // check number if exist in database
-            // res = $.ajax({
-            //   url: "/check-number/" + num,
-            //   type: "get"
-            // });
 
             $.ajax({
                 type: "get",
@@ -160,7 +151,7 @@
 
             console.log(res);
 
-            if(res == "false") {
+            if(res === "false") {
               myFunction();
             }
             else {
@@ -175,12 +166,7 @@
 
             }
 
-
-
           }
-
-
-
 
           // SHOW RANDOM NUMBERS
           function randomNumbers() {
@@ -201,8 +187,6 @@
             }, 100);
 
           }
-
-
 
           // FUNCTION TO GET RANDOM NUMBER IN UNIQUE SEQUECE WITH DATABASE
           function getGeneratedNumber() {
