@@ -50,7 +50,7 @@ class WinnerController extends Controller
     // GET ALL WINNING NUMBER WITH WINNER AND PRIZE
     public function get_winners()
     {
-    	$winners = Winner::orderBy('id', 'asc')->get();
+    	$winners = Winner::orderBy('id', 'desc')->get();
 
     	$data = array(
     		'id' => null,
@@ -69,7 +69,7 @@ class WinnerController extends Controller
     				'number' => $w->number,
     				'winner' => strtoupper($w->winner),
     				'prize' => strtoupper($w->prize),
-    				'action' => "<button class='btn btn-primary btn-sm'>Winner</button> <button class='btn btn-warning btn-sm'>Prize</button>"
+    				'action' => "<button class='btn btn-primary btn-sm'>Winner & Prize</button>"
     			];
     		}
     	}
