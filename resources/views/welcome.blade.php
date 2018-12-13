@@ -87,7 +87,7 @@
              <a href="{{ route('winners.page') }}" target="_blanik" class="btn btn-warning btn-lg">View Winners</a>
             </div>
 
-            <div class="text-center" style="font-size: 25px; font-style: ;">
+            <div class="text-center" style="font-size: 25px; font-family: 'Lucida Console';">
               Created By IT Team
             </div>
         </div>
