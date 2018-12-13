@@ -15,7 +15,7 @@ class CreateWinnersTable extends Migration
     {
         Schema::create('winners', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('number', 5)->nullable();
+            $table->string('number', 5)->unique()->nullable();
             $table->string('winner', 255)->nullable();
             $table->string('prize', 255)->nullable();
             $table->timestamps();

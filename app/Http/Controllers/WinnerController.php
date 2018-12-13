@@ -12,11 +12,7 @@ class WinnerController extends Controller
     {
     	$n = Winner::where('number', $number)->first();
 
-    	if(!emtpy($n)) {
-    		return true;
-    	}
-
-    	return false;
+    	return $n;
     }
 
 
@@ -52,6 +48,36 @@ class WinnerController extends Controller
     {
     	$winners = Winner::orderBy('id', 'asc')->get();
 
-    	return $winners;
+    	$data = array(
+    		'id' => null,
+    		'number' => null,
+    		'winner' => null,
+    		'prize' => null,
+    		'action' => null
+    	);
+
+    	if(count($winners) > 0) {
+    		$data = null;
+
+    		foreach($winners as $w) {
+    			$data[] = [
+    				'id' => $w->id,
+    				'number' => $w->number,
+    				'winner' => strtoupper($w->winner),
+    				'prize' => strtoupper($w->prize),
+    				'action' => "<button class='btn btn-primary btn-sm'>Winner</button> <button class='btn btn-warning btn-sm'>Prize</button>"
+    			];
+    		}
+    	}
+
+    	return $data;
+    }
+
+
+
+    // VIEW ALL WINNERS
+    public function winners_page()
+    {
+    	return view('winners');
     }
 }

@@ -3,8 +3,8 @@
         <title>Random Number Generator</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <style>
 
             body {
@@ -82,8 +82,9 @@
             </div>
 
             <div id="buttons">
-             <button id="pause" class="btn btn-primary btn-lg" onclick="alert(getGeneratedNumber())">Pick Lucky Number</button>
+             <button id="pause" class="btn btn-primary btn-lg" onclick="myFunction()">Pick Lucky Number</button>
              <button onclick="location.reload()" class="btn btn-success btn-lg">Pick Another</button>
+             <a href="{{ route('winners.page') }}" target="_blanik" class="btn btn-warning btn-lg">View Winners</a>
             </div>
 
             <div class="text-center">
@@ -94,20 +95,66 @@
 
         <script>
 
-          setInterval(function(){
-             var t = Math.round(Math.random() * 5 - 1) + 1;
-             document.getElementById("random1").innerHTML = t;
-          }, 100);
+          $(document).ready(function () {
 
-          setInterval(function(){
-             var t = Math.round(Math.random() * 9 - 1) + 1;
-             document.getElementById("random2").innerHTML = t;
-          }, 100);
+            randomNumbers();
 
-          setInterval(function(){
-             var t = Math.round(Math.random() * 9 - 1) + 1;
-             document.getElementById("random3").innerHTML = t;
-          }, 100);
+          });
+
+          // FUNCTION ALL
+          function myFunction() {
+
+            var num = null;
+
+            // get a unique number
+
+            // check if the unique number is existing or not
+            // if existing call, randomNumbers() and pick another unique number
+            // then if not existing save to save to database
+            // then display to page
+            num = getGeneratedNumber();
+
+
+            // check number if exist in database
+            $.ajax({
+              url: 'save-number',
+              type: "get",
+              url: "/check-number/" + num
+            });
+
+            // save number to database
+            $.ajax({
+              url: 'save-number',
+              type: "get",
+              url: "/save-number/" + num
+            });
+
+            displayNumber(num);
+
+          }
+
+
+
+
+          // SHOW RANDOM NUMBERS
+          function randomNumbers() {
+
+            setInterval(function(){
+               var t = Math.round(Math.random() * 5 - 1) + 1;
+               document.getElementById("random1").innerHTML = t;
+            }, 100);
+
+            setInterval(function(){
+               var t = Math.round(Math.random() * 9 - 1) + 1;
+               document.getElementById("random2").innerHTML = t;
+            }, 100);
+
+            setInterval(function(){
+               var t = Math.round(Math.random() * 9 - 1) + 1;
+               document.getElementById("random3").innerHTML = t;
+            }, 100);
+
+          }
 
 
 
@@ -127,6 +174,13 @@
 
             var str = num.toString();
 
+            return str;
+          }
+
+
+          // DISPLAY WINNING NUMBER
+          function displayNumber(str)
+          {
 
             if(str.length > 2) {
                     $('#number1').html( str[0]);
@@ -148,10 +202,12 @@
 
             $('#pause').prop('disabled', true);
 
-            return str;
           }
 
         </script>
+
+
+
 
         <script>
             // SCRIPT FOR DESIGN FOR THE BACKGROUND
