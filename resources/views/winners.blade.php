@@ -1,7 +1,8 @@
-<html>
+<html lang="en">
     <head>
         <title>View Winners</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/datatables.css') }}">
         <script src="{{ asset('js/jquery.min.js') }}"></script>
@@ -57,6 +58,31 @@
               ]
             });
         });
+
+
+
+        function updateInfo($id) {
+          var winner = prompt('Please Enter Winner', '');
+
+          // save to database
+          $.ajax({
+            url: '/add-winner/' + $id + '/' + winner,
+            type: "get"
+          });
+
+          
+          var prize = prompt('Please Enter Prize', '');
+
+          $.ajax({
+            url: '/add-prize/' + $id + '/'  + prize,
+            type: "get"
+          });
+
+          // reload data datables
+          var table = $('#winners').DataTable();
+          table.ajax.reload();
+
+        }
       </script>
     </body>
 </html>

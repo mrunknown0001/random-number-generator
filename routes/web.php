@@ -13,10 +13,10 @@ Route::get('/check-number/{number}', 'WinnerController@check_number');
 Route::get('/save-number/{number}', 'WinnerController@save_number');
 
 
-Route::get('/add-winner/{winner}', 'WinnerController@add_winner');
+Route::get('/add-winner/{id}/{winner}', 'WinnerController@add_winner');
 
 
-Route::get('/add-prize/{prize}', 'WinnerController@add_prize');
+Route::get('/add-prize/{id}/{prize}', 'WinnerController@add_prize');
 
 
 Route::get('/winners', 'WinnerController@get_winners')->name('winners');

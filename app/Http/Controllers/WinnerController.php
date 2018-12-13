@@ -30,7 +30,7 @@ class WinnerController extends Controller
 
 
     // ADD WINNER TO THE NUMBER
-    public function add_winnder($id, $winner)
+    public function add_winner($id, $winner)
     {
     	$n = Winner::find($id);
     	$n->winner = $winner;
@@ -69,7 +69,7 @@ class WinnerController extends Controller
     				'number' => $w->number,
     				'winner' => strtoupper($w->winner),
     				'prize' => strtoupper($w->prize),
-    				'action' => "<button class='btn btn-primary btn-sm'>Winner & Prize</button>"
+    				'action' => "<button class='btn btn-primary btn-sm' onclick=\"updateInfo('" . $w->id . "')\">Winner & Prize</button>"
     			];
     		}
     	}

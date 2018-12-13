@@ -118,9 +118,8 @@
 
             // check number if exist in database
             res = $.ajax({
-              url: 'check-number',
-              type: "get",
-              url: "/check-number/" + num
+              url: "/check-number/" + num,
+              type: "get"
             });
 
             if(res.success == 'true') {
@@ -130,9 +129,8 @@
 
               // save number to database -- ok
               $.ajax({
-                url: 'save-number',
-                type: "get",
-                url: "/save-number/" + num
+                url: "/save-number/" + num,
+                type: "get"
               });
 
               displayNumber(num);
